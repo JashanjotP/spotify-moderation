@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { AssemblyAI } from 'assemblyai';
 
 
+
 export async function POST(request: Request) {
 	try {
 		const ASSEMBLYAI_API_KEY = process.env.ASSEMBLYAI_API_KEY!;
@@ -12,6 +13,7 @@ export async function POST(request: Request) {
 		
 		const formData = await request.formData();
 		const audioFile = formData.get('audio') as File;
+		
 
 		if (!audioFile) {
 			return NextResponse.json(
@@ -46,9 +48,20 @@ export async function POST(request: Request) {
 		const flaskResponse = await response.json();
 		console.log('Flask Response:', flaskResponse);
 
+		// Determine episode name (use provided name or extract from transcript)
+		
+		// Calculate risk score based on problematic sections
+		
+		// Prepare data for make.com
+		
+		
+		// Send data to make.com asynchronously (don't await to avoid delaying response)
+		
+
 		return NextResponse.json({
 			text: transcript.text,
-			flaskResponse
+			flaskResponse,
+			
 		});
 
 	} catch (error) {

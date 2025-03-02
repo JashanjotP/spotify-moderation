@@ -1,57 +1,25 @@
 {
-    "timestamp": "2025-03-02T09:22:46.938879",
+    "timestamp": "2025-03-02T16:09:42.447618",
     "problematic_sections": [
         {
-            "chunk_index": 7,
+            "chunk_index": 0,
             "flagged_lines": [
                 {
                     "line_number": 1,
-                    "text": "a perfect ass of yourself tonight. But you can't say, hey, let's go get some ass, bitch. Bitch is another word like that. Same kind of word. It's only dirty part of the time. Depends on what you mean by bitch. You might be the lady from the San Diego Zoo visiting one of the Tonight Shows. And you might just have a bunch of little canines with you there. One of them is a female and you say, there's the bitch, Johnny. And it's okay, fine, just don't refer to the singer the same way. That's. Is that bitch gonna do another number? Yes. Animals are fine on those two way words. And that's it.",
+                    "text": "Anish. Fuck you, nigga. You're a bitch ass nigga. And fuck you. And fuck you too. Hey, how is it going, bro? Are you doing good? Yeah, I hope too.",
                     "flagged_categories": {
                         "harassment": {
-                            "score": 0.8784274609088891,
-                            "text": "a perfect ass of yourself tonight. But you can't say, hey, let's go get some ass, bitch. Bitch is another word like that. Same kind of word. It's only dirty part of the time. Depends on what you mean by bitch. You might be the lady from the San Diego Zoo visiting one of the Tonight Shows. And you might just have a bunch of little canines with you there. One of them is a female and you say, there's the bitch, Johnny. And it's okay, fine, just don't refer to the singer the same way. That's. Is that bitch gonna do another number? Yes. Animals are fine on those two way words. And that's it."
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "chunk_index": 16,
-            "flagged_lines": [
-                {
-                    "line_number": 1,
-                    "text": "Bible in third grade and we would laugh. Cock is in the Bible. Remember the first time you heard about a cock fight? What? No. And even the word cocksucker itself has been twisted out of all of its original meaning. It's been distorted for some reason now. Cocksucker means bad man. It's a good woman. How did they do that? How did they do that?",
-                    "flagged_categories": {
-                        "harassment": {
-                            "score": 0.8094296402066943,
-                            "text": "Bible in third grade and we would laugh. Cock is in the Bible. Remember the first time you heard about a cock fight? What? No. And even the word cocksucker itself has been twisted out of all of its original meaning. It's been distorted for some reason now. Cocksucker means bad man. It's a good woman. How did they do that? How did they do that?"
+                            "score": 0.9814744255784499,
+                            "text": "Anish. Fuck you, nigga. You're a bitch ass nigga. And fuck you. And fuck you too. Hey, how is it going, bro? Are you doing good? Yeah, I hope too."
+                        },
+                        "hate": {
+                            "score": 0.8815038576104185,
+                            "text": "Anish. Fuck you, nigga. You're a bitch ass nigga. And fuck you. And fuck you too. Hey, how is it going, bro? Are you doing good? Yeah, I hope too."
                         }
                     }
                 }
             ]
         }
     ],
-    "misinformation_sections": [
-        {
-            "chunk_index": 10,
-            "text": "it wasn't complete, but it was a starter set. You know shit, piss, fuck. Yes. Wbai is the one who played them? Shit, piss, fuck, concoct, sucker, motherfucker and tits. Now that was the original list. We've added a few words since then. We've added fart, turd and twat. And I know there are some other words that many of you are wondering about, why they haven't been considered, why they haven't shown up on the list thus far. We're looking at them all very closely. Some of your favorites might make the list this year. Asshole, ball, bag, hard on piss, hard, blue balls, taint, nookie, snatchbox,",
-            "misinformation_details": {
-                "is_misinformation": true,
-                "confidence": 0.9,
-                "explanation": "The text refers to a list of words that were supposedly banned or censored, often associated with comedian George Carlin's 'Seven Dirty Words' routine. However, the list mentioned in the text is incorrect. The original 'Seven Dirty Words' are 'shit, piss, fuck, cunt, cocksucker, motherfucker, and tits.' The text incorrectly lists 'concoct' instead of 'cunt' and adds words that were not part of the original routine.",
-                "correction": "The original list of 'Seven Dirty Words' by George Carlin includes 'shit, piss, fuck, cunt, cocksucker, motherfucker, and tits.'"
-            }
-        },
-        {
-            "chunk_index": 16,
-            "text": "Bible in third grade and we would laugh. Cock is in the Bible. Remember the first time you heard about a cock fight? What? No. And even the word cocksucker itself has been twisted out of all of its original meaning. It's been distorted for some reason now. Cocksucker means bad man. It's a good woman. How did they do that? How did they do that?",
-            "misinformation_details": {
-                "is_misinformation": true,
-                "confidence": 0.9,
-                "explanation": "The text claims that the word 'cocksucker' originally had a different meaning and that it has been distorted to mean 'bad man' instead of 'good woman.' This is misinformation because the term has historically been used as a vulgar insult, primarily directed at men, and has not had a positive connotation or been used to mean 'good woman.'",
-                "correction": "The term 'cocksucker' has historically been used as a vulgar insult and has not had a positive connotation or been used to mean 'good woman.'"
-            }
-        }
-    ]
+    "misinformation_sections": []
 }
