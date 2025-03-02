@@ -30,11 +30,11 @@ export default function Review() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-blue-100 dark:from-gray-900 dark:to-blue-900 p-8">
+      <div className="min-h-screen bg-[#191414] p-8">
         <div className="max-w-2xl mx-auto text-center">
           <div className="animate-pulse">
-            <div className="h-8 bg-indigo-200 dark:bg-indigo-800 rounded w-3/4 mx-auto mb-4"></div>
-            <div className="h-4 bg-indigo-100 dark:bg-indigo-900 rounded w-1/2 mx-auto"></div>
+            <div className="h-8 bg-[#1DB954]/20 rounded w-3/4 mx-auto mb-4"></div>
+            <div className="h-4 bg-[#1DB954]/10 rounded w-1/2 mx-auto"></div>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ export default function Review() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-blue-100 dark:from-gray-900 dark:to-blue-900 p-8">
+      <div className="min-h-screen bg-[#191414] p-8">
         <div className="max-w-2xl mx-auto text-center">
           <div className="bg-red-100 dark:bg-red-900 p-4 rounded-lg">
             <h2 className="text-red-800 dark:text-red-200 text-xl font-bold">Error</h2>
@@ -55,30 +55,30 @@ export default function Review() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-blue-100 dark:from-gray-900 dark:to-blue-900 p-8">
+    <div className="min-h-screen bg-[#191414] p-8">
       <main className="max-w-2xl mx-auto relative">
         <button
           onClick={() => router.push('/')}
-          className="absolute -left-16 top-0 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-indigo-50 dark:hover:bg-gray-700 transition-colors"
+          className="absolute -left-16 top-0 p-2 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:bg-[#1DB954]/10 transition-colors"
           aria-label="Go back"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#1DB954]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
           </svg>
         </button>
 
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8 border border-indigo-100 dark:border-blue-800">
-          <h1 className="text-3xl font-bold text-indigo-900 dark:text-white mb-6">
+        <div className="bg-[#121212] dark:bg-gray-800 rounded-xl shadow-2xl p-8 border border-[#1DB954] dark:border-[#1DB954]">
+          <h1 className="text-3xl font-bold text-[#1DB954] dark:text-white mb-6">
             Audio Analysis Results
           </h1>
           
           <div className="space-y-6">
             {review && Object.entries(review).map(([key, value]) => (
-              <div key={key} className="border-b border-indigo-100 dark:border-blue-800 pb-4">
-                <h2 className="text-lg font-semibold text-indigo-700 dark:text-indigo-300 mb-2">
+              <div key={key} className="border-b border-[#1DB954] dark:border-[#1DB954]/20 pb-4">
+                <h2 className="text-lg font-semibold text-[#1DB954] dark:text-[#1DB954] mb-2">
                   {key.charAt(0).toUpperCase() + key.slice(1).replace(/_/g, ' ')}
                 </h2>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-[#B3B3B3] dark:text-[#B3B3B3]">
                   {String(value)}
                 </p>
               </div>
