@@ -8,7 +8,7 @@ async function sendToMake(data: {
 	misinformationContent: string;
 	transcript: string;
 	timestamp: string;
-    email: string;
+    email: string; 
 }) {
 	try {
 		// Replace with your actual make.com webhook URL

@@ -17,6 +17,7 @@ export default function Home() {
   const [showAppealForm, setShowAppealForm] = useState(false);
   const [appealUrl, setAppealUrl] = useState('');
   const [showFlaggedContent, setShowFlaggedContent] = useState(false);
+  const [showAppealConfirmation, setShowAppealConfirmation] = useState(false);
 
   // ... (keep all the drag and drop handlers unchanged)
   const handleDragEnter = (e: DragEvent) => {
@@ -162,12 +163,36 @@ export default function Home() {
         throw new Error("Failed to submit appeal");
       }
 
-      setShowAppealForm(true);
+      setShowModal(false);
+      setShowFlaggedContent(false);
+      setShowAppealConfirmation(true);
       
     } catch (error) {
       console.error("Error submitting appeal:", error);
       setError(error instanceof Error ? error.message : 'Error submitting appeal. Please try again.');
     }
+  };
+
+  const handleReturnHome = () => {
+    setShowAppealConfirmation(false);
+    
+    const resetState = () => {
+      setIsDragging(false);
+      setFilename('');
+      setEpisodeName('');
+      setEmail('');
+      setIsProcessing(false);
+      setShowModal(false);
+      setTranscriptionResult(null);
+      setFullTranscriptionResponse(null);
+      setError('');
+      setShowAppealForm(false);
+      setAppealUrl('');
+      setShowFlaggedContent(false);
+      setShowAppealConfirmation(false);
+    };
+    resetState();
+    router.push('/');
   };
 
   // ... (keep the rest of the component unchanged)
@@ -434,6 +459,31 @@ export default function Home() {
           </div>
         )}
 
+        {/* Appeal Confirmation Modal */}
+        {showAppealConfirmation && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-[#121212] rounded-xl max-w-md w-full p-6 border border-[#1DB954]">
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#1DB954]/20 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#1DB954]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h2 className="text-2xl font-bold text-white mb-2">Appeal Submitted</h2>
+                <p className="text-[#B3B3B3] mb-6">
+                  Your appeal is being reviewed. We'll notify you via email about the status of your appeal.
+                </p>
+                <button
+                  onClick={handleReturnHome}
+                  className="w-full bg-[#1DB954] hover:bg-[#1DB954]/80 text-white font-semibold py-3 px-4 rounded-lg transition duration-200"
+                >
+                  Return to Home
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Appeal Form Modal */}
         {showAppealForm && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -559,29 +609,7 @@ export default function Home() {
         )}
 
         {/* Persistent Buttons - Outside Modal */}
-        {transcriptionResult && !showModal && (
-          <div className="fixed bottom-8 right-8 flex flex-col gap-4">
-            <button
-              onClick={handleViewFlaggedContent}
-              className="bg-[#1DB954] hover:bg-[#1DB954]/80 text-white font-semibold py-3 px-6 rounded-full shadow-lg flex items-center gap-2 transition duration-200"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-              View Flagged Content
-            </button>
-            <button
-              onClick={handleAppeal}
-              className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg flex items-center gap-2 transition duration-200"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              Appeal Flagged Content
-            </button>
-          </div>
-        )}
+        
       </main>
     </div>
   );
