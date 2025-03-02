@@ -2,13 +2,14 @@ import { NextResponse } from 'next/server';
 import { AssemblyAI } from 'assemblyai';
 
 
-
 export async function POST(request: Request) {
 	try {
 		const ASSEMBLYAI_API_KEY = process.env.ASSEMBLYAI_API_KEY!;
 		const client = new AssemblyAI({
 			apiKey: ASSEMBLYAI_API_KEY
 		});
+		
+		
 		const formData = await request.formData();
 		const audioFile = formData.get('audio') as File;
 
@@ -29,9 +30,25 @@ export async function POST(request: Request) {
 		});
 
 		// Return the transcribed text
-		console.log('Transcript:', transcript.text);
+		const flaskUrl =  'http://127.0.0.1:5000/process-transcript';
+		const response = await fetch(flaskUrl, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ transcript: transcript.text })
+		});
+
+		if (!response.ok) {
+		throw new Error('Failed to process the transcript with Flask API');
+		}
+
+		const flaskResponse = await response.json();
+		console.log('Flask Response:', flaskResponse);
+
 		return NextResponse.json({
-			text: transcript.text
+			text: transcript.text,
+			flaskResponse
 		});
 
 	} catch (error) {
